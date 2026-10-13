@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>PRR Life Coaching Academy - Draft A</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Spectral:wght@600&display=swap"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>PRR Life Coaching Academy</title><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"><link rel="apple-touch-icon" href="favicon-192.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Spectral:wght@600&display=swap"><style>
 :root{
   --bg:#faf6f1;--fg:#1c1612;--body:#3c322b;--card:#f0e4d4;--sand:#e7d7c2;--line:#e0d0bc;--frame:#b7a48c;
   --mut:#5c4c42;--ac:#8a4030;--acfg:#faf6f1;--btn:#2c2118;--btnfg:#f6efe4;--btn-hover:#44362c;
@@ -18,7 +18,7 @@
 }
 *{box-sizing:border-box;margin:0}
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:calc(4.75rem + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+html{scroll-padding-top:calc(6rem + env(safe-area-inset-top,0px));scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font:18px/1.65 Karla,system-ui,sans-serif}
 [hidden]{display:none!important}
 ul{list-style:none;padding:0}
@@ -27,7 +27,10 @@ a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
 .hd{position:sticky;top:0;z-index:6;background:var(--bg);border-bottom:1px solid var(--line)}
 .hd .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
-.brand{font:600 1.2rem Spectral,Georgia,serif}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img,.ft-logo{display:block;width:30px;height:30px;border-radius:50%;object-fit:cover}
+.ft-brand{display:flex;align-items:center;gap:8px}
+.ft-logo{width:32px;height:32px}
 .nv{display:flex;gap:8px 22px;font-size:15px;flex-wrap:wrap}
 .nv a{text-decoration:none;padding:4px 0}
 .nv a:hover{color:var(--ac)}
@@ -37,19 +40,31 @@ h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;line-height:1.2;colo
 h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:20px}
 h3{font-size:1.12rem;margin-bottom:8px}
 .big{font-size:1.2rem;max-width:40em;color:var(--body)}
-.lead,.big,article p,.row p{color:var(--body)}
+.lead,.big,article p,.row p,#founder p,.note{color:var(--body);text-align:justify;hyphens:auto}
 .note{margin-top:18px;color:var(--mut)}
 .ph,.pl{background:var(--sand) center/cover no-repeat;display:grid;place-items:center;color:var(--mut);font-size:13px;letter-spacing:.01em;max-width:100%;border:1px dashed var(--frame);border-radius:12px}
 .pl{height:200px;margin-top:28px}
 .ph.has{border-style:solid}
 .ph.has span{display:none}
-.hg,.fg{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:48px;align-items:center}
-.hero{padding:48px 0 72px}
-.hero h1{font-size:clamp(2.1rem,4.6vw,3.2rem);margin-bottom:16px}
-.hero .ph,.fg .ph{aspect-ratio:4/5}
+.fg{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:48px;align-items:center}
+.hero{padding:0 0 72px}
+.banner{overflow:hidden;border-bottom:1px solid var(--line)}
+.banner-track{display:flex;width:max-content;animation:banner-move 22s linear infinite}
+.banner:hover .banner-track{animation-play-state:paused}
+.banner-track h1,.banner-track span{margin:0;padding:.7rem 2.5rem;min-width:50vw;font-size:1.15rem;line-height:1.3;font-weight:600;white-space:nowrap;text-align:center}
+@keyframes banner-move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .banner-track{animation:none;width:100%;justify-content:center}
+  .banner-track [aria-hidden=true]{display:none}
+}
+.hero-stack{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:36px}
+.hero-stack .lead{margin-bottom:28px}
+.hero-photo{width:min(320px,78vw);height:min(320px,78vw);border-radius:50%;object-fit:cover;object-position:52% 40%;border:1px solid var(--line)}
+.hero-name{margin:22px 0 0;font-family:Spectral,Georgia,serif;font-size:clamp(1.6rem,3vw,2rem);font-weight:600;line-height:1.2}
+.founder-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 12%;border-radius:12px}
 .lead{max-width:34em;margin-bottom:20px}
-#cred{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-#cred li{background:var(--card);color:var(--fg);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600;line-height:1.4}
+#cred{display:flex;flex-flow:row nowrap;justify-content:center;align-items:center;gap:8px;margin:16px 0 24px;width:100%;max-width:100%}
+#cred li{background:var(--card);color:var(--fg);border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600;line-height:1.4;white-space:nowrap}
 #who{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 #who li{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
 #career,#why{display:grid;gap:16px}
@@ -66,7 +81,7 @@ h3{font-size:1.12rem;margin-bottom:8px}
 #links{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px}
 #links a,.ig a{color:var(--ac);font-weight:600;text-underline-offset:3px}
 #links a:hover,.ig a:hover{color:var(--fg)}
-#founder p{color:var(--dkbody)}
+#founder p{color:var(--dkbody);text-align:justify}
 #founder p+p{margin-top:16px}
 #s-founder{background:var(--dk);color:var(--dkfg)}
 #s-founder .ph{background-color:transparent;border-color:rgba(247,241,232,.45);color:var(--dkbody)}
@@ -76,21 +91,25 @@ h3{font-size:1.12rem;margin-bottom:8px}
 .ig{margin-top:20px}
 .ig li{margin-top:8px}
 .ft{background:var(--bg);color:var(--mut);border-top:1px solid var(--line)}
-.ft .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;padding-bottom:24px;font-size:14px}
+.ft .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));font-size:14px}
 .btn{display:inline-block;padding:.75rem 1.4rem;background:var(--btn);color:var(--btnfg);text-decoration:none;border-radius:var(--r);font-weight:600;cursor:pointer}
 .btn:hover{background:var(--btn-hover)}
-.fab{display:none}
+.fab{display:grid;place-items:center;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;width:56px;height:56px;padding:0;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.28)}
+.fab:hover{background:#1ebe5d}
+.fab svg{width:34px;height:34px;display:block;fill:currentColor}
 @media(max-width:760px){
   html{scroll-padding-top:calc(8.5rem + env(safe-area-inset-top,0px));scroll-padding-bottom:calc(4.5rem + env(safe-area-inset-bottom,0px))}
   .hd .wrap{padding-top:12px;padding-bottom:12px}
-  .hg,.fg,#career,#why,#media,#prog .row,#who{grid-template-columns:1fr}
-  .hero .ph,.fg .ph{max-width:300px}
+  .brand img{width:40px;height:40px}
+  .fg,#career,#why,#media,#prog .row,#who{grid-template-columns:1fr}
+  .fg{justify-items:center}
+  .founder-photo{max-width:300px}
   section{padding:48px 0}
-  .hero{padding:32px 0 40px}
+  .hero{padding:0 0 40px}
   .nv{gap:4px 14px;font-size:14px;line-height:1.35}
-  .fab{display:block;position:fixed;left:0;right:0;bottom:0;z-index:5;border-radius:0;text-align:center;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px))}
-  .fab.off{display:none}
-  .ft .wrap{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  #cred{flex-wrap:wrap;gap:6px}
+  #cred li{font-size:13px;padding:6px 10px}
+  .hero-stack .btn{max-width:100%}
 }
 #adm{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:9;overflow:auto;padding:16px}
 #adm.on{display:block}
@@ -101,21 +120,21 @@ h3{font-size:1.12rem;margin-bottom:8px}
 #adm textarea{min-height:90px}
 #adm button{padding:8px 14px;margin:14px 8px 0 0;border:1px solid var(--line);background:transparent;color:inherit;border-radius:6px;cursor:pointer;font:inherit}
 #adm button.p{background:var(--btn);border-color:var(--btn);color:var(--btnfg)}
-</style></head><body><header class="hd"><div class="wrap"><b class="brand" data-f="brand"></b><nav class="nv"><a href="#s-career">The career</a><a href="#s-academy">Academy</a><a href="#s-program">Program</a><a href="#s-founder">Founder</a><a href="#s-contact">Contact</a></nav></div></header>
+</style></head><body><header class="hd"><div class="wrap"><a class="brand" href="#"><img src="prr_logo.jpg" alt="PRR Life Coaching Academy"></a><nav class="nv"><a href="#s-career">The career</a><a href="#s-academy">Academy</a><a href="#s-program">Program</a><a href="#s-founder">Founder</a><a href="#s-contact">Contact</a></nav></div></header>
 <main>
-<section class="hero" data-pg="home"><div class="wrap hg"><div class="ph"><span>Founder photo</span></div><div class="ht"><h1 data-f="head"></h1><p class="lead" data-f="tag"></p><ul id="cred"></ul><a class="btn wa">Chat on WhatsApp</a></div></div></section>
+<section class="hero" data-pg="home"><div class="banner"><div class="banner-track"><h1 data-f="head"></h1><span data-f="head" aria-hidden="true"></span></div></div><div class="wrap hero-stack"><p class="lead" data-f="tag"></p><img class="hero-photo" src="hero_section_image.jpeg" alt="Pooja Racha"><p class="hero-name" data-f="fname"></p><ul id="cred"></ul><a class="btn wa">Chat on WhatsApp</a></div></section>
 <section id="s-what" data-pg="home"><div class="wrap"><h2>What is a life coach?</h2><p class="big" data-f="what"></p></div></section>
 <section id="s-who" class="alt" data-pg="home"><div class="wrap"><h2>Who is this career for?</h2><ul id="who"></ul><p class="note" data-f="whonote"></p></div></section>
 <section id="s-career" data-pg="home"><div class="wrap"><h2>Why life coaching is a great career</h2><div id="career"></div></div></section>
-<section id="s-academy" class="alt" data-pg="academy"><div class="wrap"><h2>About PRR Life Coaching Academy</h2><p class="big" data-f="acad"></p><div class="pl">Academy image</div></div></section>
+<section id="s-academy" class="alt" data-pg="academy"><div class="wrap"><h2>About PRR Life Coaching Academy</h2><p class="big" data-f="acad"></p></div></section>
 <section id="s-program" data-pg="academy"><div class="wrap"><h2>Our program</h2><div id="prog"></div></div></section>
 <section id="s-why" class="alt" data-pg="academy"><div class="wrap"><h2>Why PRR?</h2><div id="why"></div></div></section>
-<section id="s-founder" data-pg="home"><div class="wrap fg"><div class="ph"><span>Founder photo</span></div><div><h2>Meet the founder, <span data-f="fname"></span></h2><div id="founder"></div></div></div></section>
+<section id="s-founder" data-pg="home"><div class="wrap fg"><img class="founder-photo" src="founder_image.jpeg" alt="Pooja Racha"><div><h2>Meet the founder, <span data-f="fname"></span></h2><div id="founder"></div></div></div></section>
 <section id="s-media" data-pg="home"><div class="wrap"><h2>Also featured in</h2><div id="media"></div><div id="links"></div></div></section>
 <section id="s-contact" data-pg="all"><div class="wrap"><h2>Contact us</h2><p class="big" data-f="close"></p><p style="margin:20px 0"><a class="btn wa">Chat on WhatsApp</a></p><p>WhatsApp <span data-f="phonef"></span></p><ul class="ig"><li>Academy on Instagram: <a data-ig="ig1"></a></li><li>Founder on Instagram: <a data-ig="ig2"></a></li></ul></div></section>
 </main>
-<footer class="ft"><div class="wrap"><span>&copy; <span data-f="brand"></span></span><a href="#" class="adminlink">Admin</a></div></footer>
-<a class="btn wa fab">Chat on WhatsApp</a>
+<footer class="ft"><div class="wrap"><span class="ft-brand"><img class="ft-logo" src="prr_logo.jpg" alt=""><span>&copy; <span data-f="brand"></span></span></span><a href="#" class="adminlink">Admin</a></div></footer>
+<a class="wa fab" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
 <script>const DEF={brand:'PRR Life Coaching Academy',head:'Become a certified life coach in Telugu or English',tag:'Build a high-earning and meaningful career. Build a second income, restart your career, or turn your real-life experience into a meaningful profession. No psychology degree or prior experience required.',cred:'International Certified Life Coach\nCoached 1000+ clients\nTelugu and English',phone:'916301866938',phonef:'+91 6301 866 938',what:'A life coach is a professional who helps people gain clarity, set goals, overcome challenges, and take action to create positive changes in their personal and professional lives, by listening, asking the right questions, and guiding them without giving advice.',who:'Students looking to build a part-time career\nWorking professionals seeking an additional source of income\nIndividuals looking to restart their career after a break\nThose who want to shift into a more meaningful profession\nPeople who want to use their life experiences to help others',whonote:'No psychology degree or previous coaching experience is required.',career:'AI-resistant profession|AI can never replace you because life coaching is a human-centred profession built on genuine human connection and trust.\nFreedom and flexibility|Work from the comfort of your home and choose working hours that fit your lifestyle.\nPassion, purpose and income|Turn your passion for helping people into a fulfilling, respected, and high-income coaching practice.\nBe your own boss|Build your independent coaching practice and create financial independence.',acad:'We help aspiring coaches gain the knowledge and practical skills to build a professional career in life coaching. Our approach is simple, practical, and accessible in languages people are comfortable learning in.',prog:'Educational component|8 weeks|Theory-based education covering the fundamentals and essential knowledge of life coaching.\nPractical component|2 weeks|Live demonstrations to help you understand how a coaching session is conducted.\nBusiness building|2 weeks|Learn how to choose your niche, set up your coaching agreements and terms, and build a strong professional social media presence.\nMentorship program|1 year, flexible|Continued guidance and assistance even after completing your course and certification, before, during, or after you begin your coaching practice.',why:'Certification in 2 months|A focused program designed to help you become a certified life coach within 2 months.\nTheory and practical training|A separate practical component with live demonstrations to help you understand how coaching sessions are conducted.\nBusiness building guidance|Learn how to choose your niche, structure your coaching practice, set agreements and terms, and build a professional social media presence.\nMentorship, even after the course|Continued guidance and support as you prepare to start, build, or grow your coaching practice.\nLive interactive faculty classes|Engage with the faculty, ask questions, and learn through real-time discussions.\nCircular curriculum|Our circular learning model lets students join the program at different points in the cycle, making learning flexible and accessible.\nLearn in Telugu or English|Choose the language you are most comfortable learning in.\nBeginner-friendly learning|No psychology degree or previous coaching experience needed. Build your foundation step by step.\nFounder-led training|Learn directly under founder Pooja Racha, who brings her experience of coaching more than 1,000 clients into the classroom.',fname:'Pooja Racha',founder:'I\'m an internationally certified life coach who has coached over 1,000 clients across India and around the world.\nPersonal experiences taught me the value of having the right support at the right time. This inspired me to become that person for others and build a career around helping people create meaningful change.\nFor me, life coaching brings together three things I deeply value: helping people, meaningful work, and the opportunity to build a financially rewarding career.\nThrough PRR Life Coaching Academy, I now share my knowledge and experience with aspiring coaches who want to build a professional career in life coaching.',media:'Nari Shakti Magazine|For empowering women and inspiring positive change.\nMedia features|Invited as a guest by leading media platforms for conversations on life, mindset, emotional well-being, and personal growth.',links:'Read the article|https://www.manavoice.in/mv-updates/pooja-racha-life-coach-emotional-healing-biography\nWatch interview 1|https://youtu.be/1uuzPLlk-3k?si=oftPK9EQtvSVLFGO\nWatch interview 2|https://youtu.be/tE8ZGmk7GKQ?si=mZIdRuhEezT0lWJG\nWatch interview 3|https://youtu.be/O8OElthCKf8?si=tPTr6oc3FNoHmdPU',ig1:'prr_lifecoaching_academy',ig2:'pooja_racha_lifecoach',close:'Start your journey. Build a meaningful career. Help others create meaningful change.'};
 const KEY=document.title,F=[['brand','Academy name'],['head','Main headline'],['tag','Intro text','t'],['cred','Credentials: one per line','t'],['phone','WhatsApp number (digits with country code)'],['phonef','WhatsApp number as shown on site'],['what','What is a life coach','t'],['who','Who is this career for: one per line','t'],['whonote','Note under that list'],['career','Career benefits: title | description','t'],['acad','About the academy','t'],['prog','Program: component | duration | what you learn','t'],['why','Why PRR: title | description','t'],['fname','Founder name'],['founder','Founder story: one paragraph per line','t'],['media','Featured in: title | description','t'],['links','Article and interview links: label | url','t'],['ig1','Academy Instagram handle'],['ig2','Founder Instagram handle'],['close','Closing line']];
 let D={...DEF};try{Object.assign(D,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
@@ -127,6 +146,7 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
 const L=(k,f)=>{const e=$('#'+k);if(e)e.innerHTML=rows(D[k]).map(f).join('')};
 function render(){
 $$('[data-f]').forEach(e=>e.textContent=D[e.dataset.f]);
+const mark=$('.brand img');if(mark)mark.alt=D.brand||'PRR Life Coaching Academy';
 L('cred',r=>`<li>${esc(r[0])}</li>`);L('who',r=>`<li>${esc(r[0])}</li>`);
 L('career',r=>`<article><h3>${esc(r[0])}</h3><p>${esc(r[1])}</p></article>`);
 L('why',r=>`<article><h3>${esc(r[0])}</h3><p>${esc(r[1])}</p></article>`);
@@ -136,7 +156,8 @@ L('links',r=>`<a href="${esc(url(r[1]))}" target="_blank" rel="noopener">${esc(r
 $('#founder').innerHTML=D.founder.split('\n').filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
 $$('[data-ig]').forEach(a=>{const h=D[a.dataset.ig];a.href='https://instagram.com/'+h;a.target='_blank';a.rel='noopener';a.textContent='@'+h});
 $$('.wa').forEach(a=>{a.href='https://wa.me/'+D.phone.replace(/\D/g,'')+'?text='+encodeURIComponent('Hi, I would like to know more about the life coaching program.');a.target='_blank';a.rel='noopener'});
-$$('.ph').forEach(p=>{p.style.backgroundImage=D.photo?`url(${D.photo})`:'';p.classList.toggle('has',!!D.photo)});
+const founderPhoto=$('.founder-photo');
+if(founderPhoto)founderPhoto.src=D.photo||'founder_image.jpeg';
 }
 document.body.insertAdjacentHTML('beforeend','<div id="adm"><div class="box"></div></div>');
 const box=$('#adm .box'),shut=()=>$('#adm').classList.remove('on');
@@ -155,8 +176,4 @@ $('#pf').onchange=e=>{const f=e.target.files[0];if(!f)return;const i=new Image()
 }
 $$('.adminlink').forEach(a=>a.onclick=e=>{e.preventDefault();openAdm()});
 render();
-const fabEl=$('.fab'),heroEl=$('.hero');
-if(fabEl&&heroEl&&'IntersectionObserver' in window){
-  new IntersectionObserver(([e])=>fabEl.classList.toggle('off',e.isIntersecting&&e.intersectionRatio>.4),{threshold:[0,.4,.75]}).observe(heroEl);
-}
 </script></body></html>
